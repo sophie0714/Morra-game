@@ -6,16 +6,23 @@ public class Morra {
 
   private int numOfRound;
   private String name;
+  private String level;
+  private int endScore;
 
   public Morra() {}
 
   public void newGame(Difficulty difficulty, int pointsToWin, String[] options) {
     // For new game, round number is always 1
     numOfRound = 1;
-    
+
     // Print welcome message with the typed human player's name
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
+
+    // Store information for games
     name = options[0];
+    level = difficulty.name();
+    endScore = pointsToWin;
+
   }
 
   public void play() {
@@ -31,9 +38,16 @@ public class Morra {
       input = Utils.scanner.nextLine();
     }
 
+    // Get numbers from Jarvis using appropriate strategies for given level
+    String numbersFromJarvis = Jarvis.createNumbers(level);
+
     // Show players input information
     String inputs[] = input.split(" ");
     MessageCli.PRINT_INFO_HAND.printMessage(name, inputs[0], inputs[1]);
+
+    // Show Jarvis' numbers
+    String jarvisNumbers[] = numbersFromJarvis.split(" ");
+    MessageCli.PRINT_INFO_HAND.printMessage("Jarvis", jarvisNumbers[0], jarvisNumbers[1]);
 
     // Increment the number of round for the next round
     numOfRound++;
