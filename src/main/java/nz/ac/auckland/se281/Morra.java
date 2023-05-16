@@ -4,13 +4,15 @@ import nz.ac.auckland.se281.Main.Difficulty;
 
 public class Morra {
 
-  int numOfRound = 1;
+  private int numOfRound = 1;
+  private String name;
 
   public Morra() {}
 
   public void newGame(Difficulty difficulty, int pointsToWin, String[] options) {
     // Print welcome message with the typed human player's name
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
+    name = options[0];
   }
 
   public void play() {
@@ -23,11 +25,14 @@ public class Morra {
       MessageCli.ASK_INPUT.printMessage();
       input = Utils.scanner.nextLine();
     }
-    
+    // Show players input information
+    String inputs[] = input.split(" ");
+    MessageCli.PRINT_INFO_HAND.printMessage(name, inputs[0], inputs[1]);
   }
 
   public void showStats() {}
 
+  // A method which checks if the inputs given by the human player are valid or not
   private boolean inputValidityChecker(String input) {
     String inputs[] = input.split(" ");
     if (inputs.length != 2) {
