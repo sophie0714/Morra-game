@@ -95,4 +95,8 @@ public class Morra {
   public ArrayList<Integer> getHistory(){
     return history;
   }
+
+  public int getNumOfRound(){
+    return numOfRound;
+  }
 }
