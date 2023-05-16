@@ -18,16 +18,20 @@ public class Morra {
   public void play() {
     // Initiate a game
     MessageCli.START_ROUND.printMessage(Integer.toString(numOfRound));
-    
+
     // Error message for invalid input
     String input = "";
-    while (!inputValidityChecker(input)){
+    while (!inputValidityChecker(input)) {
       MessageCli.ASK_INPUT.printMessage();
       input = Utils.scanner.nextLine();
     }
+
     // Show players input information
     String inputs[] = input.split(" ");
     MessageCli.PRINT_INFO_HAND.printMessage(name, inputs[0], inputs[1]);
+
+    // Increment the number of round for the next round
+    numOfRound++;
   }
 
   public void showStats() {}
