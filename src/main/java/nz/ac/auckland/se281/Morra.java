@@ -18,10 +18,12 @@ public class Morra {
   public void play() {
     // Initiate a game
     MessageCli.START_ROUND.printMessage(Integer.toString(numOfRound));
+    MessageCli.ASK_INPUT.printMessage();
+    String input = Utils.scanner.nextLine();
 
-    // Error message for invalid input
-    String input = "";
+    // Error message for invalid input and re-get the inputs from the player
     while (!inputValidityChecker(input)) {
+      MessageCli.INVALID_INPUT.printMessage();
       MessageCli.ASK_INPUT.printMessage();
       input = Utils.scanner.nextLine();
     }
@@ -39,14 +41,17 @@ public class Morra {
   // A method which checks if the inputs given by the human player are valid or not
   private boolean inputValidityChecker(String input) {
     String inputs[] = input.split(" ");
+    // The number of inputs must be exactly 2 
     if (inputs.length != 2) {
       return false;
+    // The inputs must be both integer
     } else if (!Utils.isInteger(inputs[0]) || !Utils.isInteger(inputs[1])) {
       return false;
+    // The inputs must be within the appropriate range
     } else if (Integer.valueOf(inputs[0]) > 5
         || Integer.valueOf(inputs[1]) > 10
-        || Integer.valueOf(inputs[0]) == 0
-        || Integer.valueOf(inputs[1]) == 0) {
+        || Integer.valueOf(inputs[0]) <= 0
+        || Integer.valueOf(inputs[1]) <= 0){
       return false;
     } else {
       return true;
