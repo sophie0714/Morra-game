@@ -29,25 +29,37 @@ public class Morra {
     // Initiate a game
     MessageCli.START_ROUND.printMessage(Integer.toString(numOfRound));
     MessageCli.ASK_INPUT.printMessage();
-    String input = Utils.scanner.nextLine();
+    String numbersFromHuman = Utils.scanner.nextLine();
 
     // Error message for invalid input and re-get the inputs from the player
-    while (!inputValidityChecker(input)) {
+    while (!inputValidityChecker(numbersFromHuman)) {
       MessageCli.INVALID_INPUT.printMessage();
       MessageCli.ASK_INPUT.printMessage();
-      input = Utils.scanner.nextLine();
+      numbersFromHuman = Utils.scanner.nextLine();
     }
 
     // Get numbers from Jarvis using appropriate strategies for given level
     String numbersFromJarvis = Jarvis.createNumbers(level);
 
     // Show players input information
-    String inputs[] = input.split(" ");
-    MessageCli.PRINT_INFO_HAND.printMessage(name, inputs[0], inputs[1]);
+    String humanNumbers[] = numbersFromHuman.split(" ");
+    MessageCli.PRINT_INFO_HAND.printMessage(name, humanNumbers[0], humanNumbers[1]);
 
     // Show Jarvis' numbers
     String jarvisNumbers[] = numbersFromJarvis.split(" ");
     MessageCli.PRINT_INFO_HAND.printMessage("Jarvis", jarvisNumbers[0], jarvisNumbers[1]);
+
+    // Determine who is the winner
+    int sum = Integer.valueOf(humanNumbers[0]) + Integer.valueOf(jarvisNumbers[0]);
+    if (Integer.valueOf(humanNumbers[1]) == Integer.valueOf(jarvisNumbers[1])){
+      MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
+    } else if (Integer.valueOf(humanNumbers[1]) == sum){
+      MessageCli.PRINT_OUTCOME_ROUND.printMessage("HUMAN_WINS");
+    } else if (Integer.valueOf(jarvisNumbers[1]) == sum ){
+      MessageCli.PRINT_OUTCOME_ROUND.printMessage("AI_WINS");
+    } else{
+      MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
+    }
 
     // Increment the number of round for the next round
     numOfRound++;
