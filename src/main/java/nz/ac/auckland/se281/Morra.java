@@ -1,6 +1,7 @@
 package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Difficulty;
+import java.util.ArrayList;
 
 public class Morra {
 
@@ -8,6 +9,7 @@ public class Morra {
   private String name;
   private String level;
   private int endScore;
+  public ArrayList<Integer> history = new ArrayList<>();
 
   public Morra() {}
 
@@ -61,6 +63,9 @@ public class Morra {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
     }
 
+    // Store human's fingers history
+    history.add(Integer.valueOf(humanNumbers[0]));
+
     // Increment the number of round for the next round
     numOfRound++;
   }
@@ -85,5 +90,9 @@ public class Morra {
     } else {
       return true;
     }
+  }
+
+  public ArrayList<Integer> getHistory(){
+    return history;
   }
 }
