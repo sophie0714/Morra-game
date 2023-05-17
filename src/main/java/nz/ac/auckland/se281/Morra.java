@@ -9,14 +9,19 @@ public class Morra {
   private String name;
   private String level;
   private boolean newGameStarted = false;
-  //private int endScore;
+  private int endScore;
+  private int humanPoints;
+  private int aiPoints;
   private ArrayList<Integer> history = new ArrayList<>();
 
   public Morra() {}
 
   public void newGame(Difficulty difficulty, int pointsToWin, String[] options) {
-    // For new game, round number is always 1
+    // For new game, reset the variables
     numOfRound = 1;
+    humanPoints = 0;
+    aiPoints = 0;
+    history.clear();
 
     // New Game has started
     newGameStarted = true;
@@ -27,12 +32,12 @@ public class Morra {
     // Store information for games
     name = options[0];
     level = difficulty.name();
-    //endScore = pointsToWin;
+    endScore = pointsToWin;
   }
 
   public void play() {
     // If play was tried before starting new game, error message is printed and play does not run
-    if (newGameStarted != true){
+    if (newGameStarted == false) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
     }
@@ -66,14 +71,27 @@ public class Morra {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
     } else if (Integer.valueOf(humanNumbers[1]) == sum) {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("HUMAN_WINS");
+      humanPoints++;
     } else if (Integer.valueOf(jarvisNumbers[1]) == sum) {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("AI_WINS");
+      aiPoints++;
     } else {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
     }
 
     // Store human's fingers history
     history.add(Integer.valueOf(humanNumbers[0]));
+
+    // If reaching the endScore, print winning message and end game
+    if (aiPoints == endScore) {
+      MessageCli.END_GAME.printMessage("Jarvis", Integer.toString(numOfRound));
+      newGameStarted = false;
+      return;
+    } else if (endScore == humanPoints) {
+      MessageCli.END_GAME.printMessage(name, Integer.toString(numOfRound));
+      newGameStarted = false;
+      return;
+    }
 
     // Increment the number of round for the next round
     numOfRound++;
