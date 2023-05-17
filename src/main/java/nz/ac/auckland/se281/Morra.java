@@ -97,7 +97,19 @@ public class Morra {
     numOfRound++;
   }
 
-  public void showStats() {}
+  public void showStats() {
+    // If showStats is tried when the game is not running, print error message
+    // and showStats does not run
+    if (newGameStarted == false) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+    // Print stats (order: human first, jarvis second)
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        name, Integer.toString(humanPoints), Integer.toString(endScore - humanPoints));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        "Jarvis", Integer.toString(aiPoints), Integer.toString(endScore - aiPoints));
+  }
 
   // A method which checks if the inputs given by the human player are valid or not
   private boolean inputValidityChecker(String input) {
