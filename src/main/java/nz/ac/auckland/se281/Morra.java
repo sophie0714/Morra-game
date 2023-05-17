@@ -41,7 +41,7 @@ public class Morra {
     }
 
     // Get numbers from Jarvis using appropriate strategies for given level
-    String numbersFromJarvis = Jarvis.createNumbers(level);
+    String numbersFromJarvis = Jarvis.createNumbers(Morra.this);
 
     // Show players input information
     String humanNumbers[] = numbersFromHuman.split(" ");
@@ -98,5 +98,9 @@ public class Morra {
 
   public int getNumOfRound(){
     return numOfRound;
+  }
+
+  public String getLevel(){
+    return level;
   }
 }
