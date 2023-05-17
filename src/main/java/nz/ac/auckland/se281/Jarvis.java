@@ -20,6 +20,10 @@ public class Jarvis {
         level = new HardLevel();
         return level.useStrategy(morra);
 
+      case "MASTER":
+        level = new MasterLevel();
+        return level.useStrategy(morra);  
+        
       default:
         return null;
     }
