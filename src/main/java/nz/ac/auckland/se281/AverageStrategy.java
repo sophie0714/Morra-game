@@ -13,13 +13,14 @@ public class AverageStrategy implements Strategy {
 
     // Calculate the average of human's historical fingers numbers
     int sumOfHistory = 0;
-    for (int i = 0; i < history.size() - 1; i++) {
+    for (int i = 0; i < history.size(); i++) {
       sumOfHistory += history.get(i);
     }
-    int avg = Math.round(sumOfHistory / (history.size() - 1));
+    Double avg = (double)sumOfHistory / (double)history.size();
+    int roundAverage = (int)Math.round(avg);
 
     // Calculate sum based on the average and ai's fingers
-    int sum = fingers + avg;
+    int sum = fingers + roundAverage;
 
     // Return two numbers in String type
     return Integer.toString(fingers) + " " + Integer.toString(sum);
