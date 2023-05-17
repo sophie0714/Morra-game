@@ -8,6 +8,7 @@ public class Morra {
   private int numOfRound;
   private String name;
   private String level;
+  private boolean newGameStarted = false;
   //private int endScore;
   private ArrayList<Integer> history = new ArrayList<>();
 
@@ -16,6 +17,9 @@ public class Morra {
   public void newGame(Difficulty difficulty, int pointsToWin, String[] options) {
     // For new game, round number is always 1
     numOfRound = 1;
+
+    // New Game has started
+    newGameStarted = true;
 
     // Print welcome message with the typed human player's name
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
@@ -27,6 +31,12 @@ public class Morra {
   }
 
   public void play() {
+    // If play was tried before starting new game, error message is printed and play does not run
+    if (newGameStarted != true){
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+
     // Initiate a game
     MessageCli.START_ROUND.printMessage(Integer.toString(numOfRound));
     MessageCli.ASK_INPUT.printMessage();
