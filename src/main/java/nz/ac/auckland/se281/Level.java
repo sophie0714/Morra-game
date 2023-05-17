@@ -1,5 +1,5 @@
 package nz.ac.auckland.se281;
 
 public interface Level {
-  String useStrategy(int numOfRound);
+  String useStrategy(Morra morra);
 }

@@ -2,8 +2,8 @@ package nz.ac.auckland.se281;
 
 public class EasyLevel implements Level {
   @Override
-  public String useStrategy(int numOfRound) {
+  public String useStrategy(Morra morra) {
     Strategy strategy = new RandomStrategy();
-    return strategy.getNumbers();
+    return strategy.getNumbers(morra);
   }
 }

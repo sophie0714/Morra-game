@@ -4,15 +4,14 @@ public class Jarvis {
   public static String createNumbers( Morra morra) {
     Level level = null;
     String difficulty = morra.getLevel();
-    int numOfRound = morra.getNumOfRound();
     switch (difficulty) {
       case "EASY":
         level = new EasyLevel();
-        return level.useStrategy(numOfRound);
+        return level.useStrategy(morra);
 
       case "MEDIUM":
         level = new MediumLevel();
-        return level.useStrategy(numOfRound);
+        return level.useStrategy(morra);
 
       default:
         return null;
