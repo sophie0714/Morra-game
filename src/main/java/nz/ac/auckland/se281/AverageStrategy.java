@@ -9,6 +9,7 @@ public class AverageStrategy implements Strategy {
     // Generate random number for fingers
     int fingers = Utils.getRandomNumber(1, 5);
 
+    // Call history of human's fingers
     ArrayList<Integer> history = morra.getHistory();
 
     // Calculate the average of human's historical fingers numbers
@@ -16,8 +17,8 @@ public class AverageStrategy implements Strategy {
     for (int i = 0; i < history.size(); i++) {
       sumOfHistory += history.get(i);
     }
-    Double avg = (double)sumOfHistory / (double)history.size();
-    int roundAverage = (int)Math.round(avg);
+    Double avg = (double) sumOfHistory / (double) history.size();
+    int roundAverage = (int) Math.round(avg);
 
     // Calculate sum based on the average and ai's fingers
     int sum = fingers + roundAverage;

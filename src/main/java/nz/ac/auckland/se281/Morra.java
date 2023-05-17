@@ -1,15 +1,15 @@
 package nz.ac.auckland.se281;
 
-import nz.ac.auckland.se281.Main.Difficulty;
 import java.util.ArrayList;
+import nz.ac.auckland.se281.Main.Difficulty;
 
 public class Morra {
-
+  // fields
   private int numOfRound;
   private String name;
   private String level;
-  private int endScore;
-  public ArrayList<Integer> history = new ArrayList<>();
+  //private int endScore;
+  private ArrayList<Integer> history = new ArrayList<>();
 
   public Morra() {}
 
@@ -23,8 +23,7 @@ public class Morra {
     // Store information for games
     name = options[0];
     level = difficulty.name();
-    endScore = pointsToWin;
-
+    //endScore = pointsToWin;
   }
 
   public void play() {
@@ -53,13 +52,13 @@ public class Morra {
 
     // Determine who is the winner
     int sum = Integer.valueOf(humanNumbers[0]) + Integer.valueOf(jarvisNumbers[0]);
-    if (Integer.valueOf(humanNumbers[1]) == Integer.valueOf(jarvisNumbers[1])){
+    if (Integer.valueOf(humanNumbers[1]) == Integer.valueOf(jarvisNumbers[1])) {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
-    } else if (Integer.valueOf(humanNumbers[1]) == sum){
+    } else if (Integer.valueOf(humanNumbers[1]) == sum) {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("HUMAN_WINS");
-    } else if (Integer.valueOf(jarvisNumbers[1]) == sum ){
+    } else if (Integer.valueOf(jarvisNumbers[1]) == sum) {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("AI_WINS");
-    } else{
+    } else {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
     }
 
@@ -75,32 +74,32 @@ public class Morra {
   // A method which checks if the inputs given by the human player are valid or not
   private boolean inputValidityChecker(String input) {
     String inputs[] = input.split(" ");
-    // The number of inputs must be exactly 2 
+    // The number of inputs must be exactly 2
     if (inputs.length != 2) {
       return false;
-    // The inputs must be both integer
+      // The inputs must be both integer
     } else if (!Utils.isInteger(inputs[0]) || !Utils.isInteger(inputs[1])) {
       return false;
-    // The inputs must be within the appropriate range
+      // The inputs must be within the appropriate range
     } else if (Integer.valueOf(inputs[0]) > 5
         || Integer.valueOf(inputs[1]) > 10
         || Integer.valueOf(inputs[0]) <= 0
-        || Integer.valueOf(inputs[1]) <= 0){
+        || Integer.valueOf(inputs[1]) <= 0) {
       return false;
     } else {
       return true;
     }
   }
 
-  public ArrayList<Integer> getHistory(){
+  public ArrayList<Integer> getHistory() {
     return history;
   }
 
-  public int getNumOfRound(){
+  public int getNumOfRound() {
     return numOfRound;
   }
 
-  public String getLevel(){
+  public String getLevel() {
     return level;
   }
 }

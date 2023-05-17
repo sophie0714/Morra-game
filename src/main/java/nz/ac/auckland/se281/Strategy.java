@@ -1,5 +1,5 @@
 package nz.ac.auckland.se281;
 
 public interface Strategy {
-    public String getNumbers(Morra morra);
+  public String getNumbers(Morra morra);
 }
