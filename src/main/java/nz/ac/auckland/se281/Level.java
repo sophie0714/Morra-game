@@ -1,5 +1,7 @@
 package nz.ac.auckland.se281;
 
+import java.util.ArrayList;
+
 public interface Level {
-  Strategy useStrategy(int numOfRound);
+  String useStrategy(int numOfRound, ArrayList<Integer> history);
 }

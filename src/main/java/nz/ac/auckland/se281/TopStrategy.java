@@ -5,8 +5,15 @@ import java.util.Collections;
 
 public class TopStrategy implements Strategy {
 
+  
+  private ArrayList<Integer> history;
+
+  public TopStrategy(ArrayList<Integer> history){
+    this.history = history;
+  }
+
   @Override
-  public String getNumbers(int numOfRound, ArrayList<Integer> history) {
+  public String getNumbers() {
     // Generate random number for fingers
     int fingers = Utils.getRandomNumber(1, 5);
 
