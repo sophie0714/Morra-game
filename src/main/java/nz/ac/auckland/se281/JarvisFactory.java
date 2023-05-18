@@ -1,24 +1,23 @@
 package nz.ac.auckland.se281;
+import nz.ac.auckland.se281.Main.Difficulty;
 
 public class JarvisFactory {
-  public static Level createNumbers(Morra morra) {
-    // Find what level this game is
-    String difficulty = morra.getLevel();
+  public static Level createNumbers(Difficulty difficulty) {
 
     // Use appropriate strategy for game level
     switch (difficulty) {
-      case "EASY":
+      case EASY:
         return new EasyLevel();
 
-      case "MEDIUM":
+      case MEDIUM:
         return new MediumLevel();
 
-      case "HARD":
+      case HARD:
         return new HardLevel();
 
-      case "MASTER":
+      case MASTER:
         return new MasterLevel();
-        
+
       default:
         return null;
     }

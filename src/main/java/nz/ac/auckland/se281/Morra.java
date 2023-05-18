@@ -7,7 +7,7 @@ public class Morra {
   // fields
   private int numOfRound;
   private String name;
-  private String level;
+  private Difficulty level;
   private boolean newGameStarted = false;
   private int endScore;
   private int humanPoints;
@@ -31,7 +31,7 @@ public class Morra {
 
     // Store information for games
     name = options[0];
-    level = difficulty.name();
+    level = difficulty;
     endScore = pointsToWin;
   }
 
@@ -55,7 +55,7 @@ public class Morra {
     }
 
     // Get numbers from Jarvis using appropriate strategies for given level
-    Level whatLevel = JarvisFactory.createNumbers(Morra.this);
+    Level whatLevel = JarvisFactory.createNumbers(level);
     Strategy whatStrategy = whatLevel.useStrategy(Morra.this);
     String numbersFromJarvis = whatStrategy.getNumbers(Morra.this);
 
@@ -139,9 +139,5 @@ public class Morra {
 
   public int getNumOfRound() {
     return numOfRound;
-  }
-
-  public String getLevel() {
-    return level;
   }
 }
