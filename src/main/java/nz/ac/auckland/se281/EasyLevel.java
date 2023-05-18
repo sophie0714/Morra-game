@@ -5,6 +5,6 @@ public class EasyLevel implements Level {
   public Strategy useStrategy(int numOfRound) {
     // Always use random strategy
     Strategy strategy = new RandomStrategy();
-    return  strategy;
+    return strategy;
   }
 }
