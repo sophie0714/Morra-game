@@ -132,12 +132,4 @@ public class Morra {
       return true;
     }
   }
-
-  public ArrayList<Integer> getHistory() {
-    return history;
-  }
-
-  public int getNumOfRound() {
-    return numOfRound;
-  }
 }
