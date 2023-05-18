@@ -58,11 +58,11 @@ public class Morra {
     String numbersFromJarvis = JarvisFactory.createNumbers(Morra.this);
 
     // Show players input information
-    String humanNumbers[] = numbersFromHuman.split(" ");
+    String[] humanNumbers = numbersFromHuman.split(" ");
     MessageCli.PRINT_INFO_HAND.printMessage(name, humanNumbers[0], humanNumbers[1]);
 
     // Show Jarvis' numbers
-    String jarvisNumbers[] = numbersFromJarvis.split(" ");
+    String[] jarvisNumbers = numbersFromJarvis.split(" ");
     MessageCli.PRINT_INFO_HAND.printMessage("Jarvis", jarvisNumbers[0], jarvisNumbers[1]);
 
     // Determine who is the winner
@@ -113,7 +113,7 @@ public class Morra {
 
   // A method which checks if the inputs given by the human player are valid or not
   private boolean inputValidityChecker(String input) {
-    String inputs[] = input.split(" ");
+    String[] inputs = input.split(" ");
     // The number of inputs must be exactly 2
     if (inputs.length != 2) {
       return false;
