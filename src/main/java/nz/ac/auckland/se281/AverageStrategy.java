@@ -5,12 +5,9 @@ import java.util.ArrayList;
 public class AverageStrategy implements Strategy {
 
   @Override
-  public String getNumbers(Morra morra) {
+  public String getNumbers(int numOfRound, ArrayList<Integer> history) {
     // Generate random number for fingers
     int fingers = Utils.getRandomNumber(1, 5);
-
-    // Call history of human's fingers
-    ArrayList<Integer> history = morra.getHistory();
 
     // Calculate the average of human's historical fingers numbers
     int sumOfHistory = 0;

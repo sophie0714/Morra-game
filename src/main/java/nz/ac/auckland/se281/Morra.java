@@ -57,7 +57,7 @@ public class Morra {
     // Get numbers from Jarvis using appropriate strategies for given level
     Level whatLevel = JarvisFactory.createLevel(level);
     Strategy whatStrategy = whatLevel.useStrategy(numOfRound);
-    String numbersFromJarvis = whatStrategy.getNumbers(Morra.this);
+    String numbersFromJarvis = whatStrategy.getNumbers(numOfRound, history);
 
     // Show players input information
     String[] humanNumbers = numbersFromHuman.split(" ");
