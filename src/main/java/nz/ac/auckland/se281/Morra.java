@@ -12,7 +12,7 @@ public class Morra {
   private int endScore;
   private int humanPoints;
   private int aiPoints;
-  private ArrayList<Integer> history = new ArrayList<>();
+  private ArrayList<Integer> history;
 
   public Morra() {}
 
