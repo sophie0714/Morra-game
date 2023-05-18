@@ -4,8 +4,7 @@ public class MediumLevel implements Level {
 
   // Strategies for medium level
   @Override
-  public Strategy useStrategy(Morra morra) {
-    int numOfRound = morra.getNumOfRound();
+  public Strategy useStrategy(int numOfRound) {
     // If the round is bigger than or equal to 4, use average strategy
     if (numOfRound >= 4) {
       Strategy strategy = new AverageStrategy();

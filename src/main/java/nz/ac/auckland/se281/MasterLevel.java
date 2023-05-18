@@ -4,8 +4,7 @@ public class MasterLevel implements Level {
 
   // Strategies for master level
   @Override
-  public Strategy useStrategy(Morra morra) {
-    int numOfRound = morra.getNumOfRound();
+  public Strategy useStrategy(int numOfRound) {
     // If the number of round is bigger than or equal to 4 and even, use average strategy
     if (numOfRound >= 4 && (numOfRound % 2 == 0)) {
       Strategy strategy = new AverageStrategy();
