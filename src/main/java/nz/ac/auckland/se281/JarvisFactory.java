@@ -2,8 +2,10 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Difficulty;
 
+import java.util.ArrayList;
+
 public class JarvisFactory {
-  public static Level createLevel(Difficulty difficulty) {
+  public static Level createLevel(Difficulty difficulty, int numOfRound, ArrayList<Integer> history) {
 
     // Use appropriate strategy for game level
     switch (difficulty) {
@@ -11,13 +13,13 @@ public class JarvisFactory {
         return new EasyLevel();
 
       case MEDIUM:
-        return new MediumLevel();
+        return new MediumLevel(numOfRound, history);
 
       case HARD:
-        return new HardLevel();
+        return new HardLevel(numOfRound, history);
 
       case MASTER:
-        return new MasterLevel();
+        return new MasterLevel(numOfRound, history);
 
       default:
         return null;
