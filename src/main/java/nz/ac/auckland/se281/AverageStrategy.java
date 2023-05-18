@@ -3,10 +3,10 @@ package nz.ac.auckland.se281;
 import java.util.ArrayList;
 
 public class AverageStrategy implements Strategy {
-  
+
   private ArrayList<Integer> history;
 
-  public AverageStrategy(ArrayList<Integer> history){
+  public AverageStrategy(ArrayList<Integer> history) {
     this.history = history;
   }
 

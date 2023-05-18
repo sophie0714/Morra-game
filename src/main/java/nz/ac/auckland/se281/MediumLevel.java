@@ -7,7 +7,7 @@ public class MediumLevel implements Level {
   private int numOfRound;
   private ArrayList<Integer> history;
 
-  public MediumLevel(int numOfRound, ArrayList<Integer> history){
+  public MediumLevel(int numOfRound, ArrayList<Integer> history) {
     this.numOfRound = numOfRound;
     this.history = history;
   }

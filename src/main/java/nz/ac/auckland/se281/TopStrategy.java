@@ -5,10 +5,9 @@ import java.util.Collections;
 
 public class TopStrategy implements Strategy {
 
-  
   private ArrayList<Integer> history;
 
-  public TopStrategy(ArrayList<Integer> history){
+  public TopStrategy(ArrayList<Integer> history) {
     this.history = history;
   }
 

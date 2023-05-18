@@ -7,7 +7,7 @@ public class HardLevel implements Level {
   private int numOfRound;
   private ArrayList<Integer> history;
 
-  public HardLevel(int numOfRound, ArrayList<Integer> history){
+  public HardLevel(int numOfRound, ArrayList<Integer> history) {
     this.numOfRound = numOfRound;
     this.history = history;
   }

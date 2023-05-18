@@ -7,7 +7,7 @@ public class MasterLevel implements Level {
   private int numOfRound;
   private ArrayList<Integer> history;
 
-  public MasterLevel(int numOfRound, ArrayList<Integer> history){
+  public MasterLevel(int numOfRound, ArrayList<Integer> history) {
     this.numOfRound = numOfRound;
     this.history = history;
   }
