@@ -10,7 +10,7 @@ public abstract class Level {
 
   abstract void useStrategy();
 
-  public void setStrategy(Strategy strategy) {
+  protected void setStrategy(Strategy strategy) {
     this.strategy = strategy;
   }
 
