@@ -34,7 +34,6 @@ public class Morra {
     name = options[0];
     level = difficulty;
     endScore = pointsToWin;
-    strategy = new RandomStrategy();
   }
 
   public void play() {
