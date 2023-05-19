@@ -5,14 +5,14 @@ import nz.ac.auckland.se281.Main.Difficulty;
 
 public class Morra {
   // fields
-  private int numOfRound;
-  private String name;
-  private Difficulty level;
-  private boolean newGameStarted = false;
-  private int endScore;
-  private int humanPoints;
   private int aiPoints;
+  private int endScore;
   private ArrayList<Integer> history = new ArrayList<Integer>();
+  private int humanPoints;
+  private Difficulty level;
+  private String name;
+  private boolean newGameStarted = false;
+  private int numOfRound;
   private Strategy strategy;
 
   public Morra() {}
@@ -59,7 +59,6 @@ public class Morra {
     Level whatLevel = JarvisFactory.createLevel(level, numOfRound, history, strategy);
     whatLevel.useStrategy();
     String numbersFromJarvis = whatLevel.giveNumbers();
-
 
     // Show players input information
     String[] humanNumbers = numbersFromHuman.split(" ");

@@ -4,17 +4,17 @@ public abstract class Level {
 
   Strategy strategy;
 
-  public Level(Strategy strategy){
+  public Level(Strategy strategy) {
     this.strategy = strategy;
   }
 
   abstract void useStrategy();
 
-  public void setStrategy(Strategy strategy){
+  public void setStrategy(Strategy strategy) {
     this.strategy = strategy;
   }
 
-  public String giveNumbers(){
+  public String giveNumbers() {
     return strategy.getNumbers();
   }
 }
