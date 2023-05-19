@@ -45,15 +45,14 @@ public class Morra {
 
     // Initiate a game
     MessageCli.START_ROUND.printMessage(Integer.toString(numOfRound));
-    MessageCli.ASK_INPUT.printMessage();
-    String numbersFromHuman = Utils.scanner.nextLine();
 
-    // Error message for invalid input and re-get the inputs from the player
-    while (!inputValidityChecker(numbersFromHuman)) {
-      MessageCli.INVALID_INPUT.printMessage();
+    // Keep getting input from human until valid input is entered
+    String numbersFromHuman;
+    do {
       MessageCli.ASK_INPUT.printMessage();
       numbersFromHuman = Utils.scanner.nextLine();
-    }
+    } while (!inputValidityChecker(numbersFromHuman));
+    MessageCli.INVALID_INPUT.printMessage();
 
     // Get numbers from Jarvis using appropriate strategies for given level
     Level whatLevel = JarvisFactory.createLevel(level, numOfRound, history, strategy);
