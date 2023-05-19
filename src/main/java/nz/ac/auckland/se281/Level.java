@@ -2,7 +2,7 @@ package nz.ac.auckland.se281;
 
 public abstract class Level {
 
-  Strategy strategy;
+  private Strategy strategy;
 
   public Level(Strategy strategy) {
     this.strategy = strategy;
