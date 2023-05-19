@@ -12,7 +12,8 @@ public class Morra {
   private int endScore;
   private int humanPoints;
   private int aiPoints;
-  private ArrayList<Integer> history;
+  private ArrayList<Integer> history = new ArrayList<Integer>();
+  private Strategy strategy;
 
   public Morra() {}
 
@@ -33,6 +34,7 @@ public class Morra {
     name = options[0];
     level = difficulty;
     endScore = pointsToWin;
+    strategy = new RandomStrategy();
   }
 
   public void play() {
@@ -55,8 +57,10 @@ public class Morra {
     }
 
     // Get numbers from Jarvis using appropriate strategies for given level
-    Level whatLevel = JarvisFactory.createLevel(level, numOfRound, history);
-    String numbersFromJarvis = whatLevel.useStrategy();
+    Level whatLevel = JarvisFactory.createLevel(level, numOfRound, history, strategy);
+    whatLevel.useStrategy();
+    String numbersFromJarvis = whatLevel.giveNumbers();
+
 
     // Show players input information
     String[] humanNumbers = numbersFromHuman.split(" ");
