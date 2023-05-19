@@ -1,10 +1,14 @@
 package nz.ac.auckland.se281;
 
-public class EasyLevel implements Level {
+public class EasyLevel extends Level {
+
+  public EasyLevel(Strategy strategy){
+    super(strategy);
+
+  }
   @Override
-  public String useStrategy() {
+  public void useStrategy() {
     // Always use random strategy
-    Strategy strategy = new RandomStrategy();
-    return strategy.getNumbers();
+    setStrategy(new RandomStrategy());
   }
 }
