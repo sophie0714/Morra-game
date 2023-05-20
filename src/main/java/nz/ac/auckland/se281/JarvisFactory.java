@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import nz.ac.auckland.se281.Main.Difficulty;
 
 public class JarvisFactory {
-  public static Jarvis createLevel(
+  public static Jarvis createJarvis(
       Difficulty difficulty, int numOfRound, ArrayList<Integer> history, Strategy strategy) {
 
     // Use appropriate strategy for game level
