@@ -2,12 +2,12 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 
-public class HardLevel extends Level {
+public class HardJarvis extends Jarvis {
 
   private int numOfRound;
   private ArrayList<Integer> history;
 
-  public HardLevel(Strategy strategy, int numOfRound, ArrayList<Integer> history) {
+  public HardJarvis(Strategy strategy, int numOfRound, ArrayList<Integer> history) {
     super(strategy);
     this.numOfRound = numOfRound;
     this.history = history;

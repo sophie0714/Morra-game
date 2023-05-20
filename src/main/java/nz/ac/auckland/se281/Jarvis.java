@@ -1,10 +1,10 @@
 package nz.ac.auckland.se281;
 
-public abstract class Level {
+public abstract class Jarvis {
 
   private Strategy strategy;
 
-  public Level(Strategy strategy) {
+  public Jarvis(Strategy strategy) {
     this.strategy = strategy;
   }
 

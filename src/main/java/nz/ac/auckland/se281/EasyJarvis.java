@@ -1,8 +1,8 @@
 package nz.ac.auckland.se281;
 
-public class EasyLevel extends Level {
+public class EasyJarvis extends Jarvis {
 
-  public EasyLevel(Strategy strategy) {
+  public EasyJarvis(Strategy strategy) {
     super(strategy);
   }
 

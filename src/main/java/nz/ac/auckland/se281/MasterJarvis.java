@@ -2,12 +2,12 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 
-public class MasterLevel extends Level {
+public class MasterJarvis extends Jarvis {
 
   private int numOfRound;
   private ArrayList<Integer> history;
 
-  public MasterLevel(Strategy strategy, int numOfRound, ArrayList<Integer> history) {
+  public MasterJarvis(Strategy strategy, int numOfRound, ArrayList<Integer> history) {
     super(strategy);
     this.numOfRound = numOfRound;
     this.history = history;
