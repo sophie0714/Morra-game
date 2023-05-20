@@ -7,7 +7,7 @@ public class JarvisFactory {
   public static Jarvis createJarvis(
       Difficulty difficulty, int numOfRound, ArrayList<Integer> history, Strategy strategy) {
 
-    // Use appropriate strategy for game level
+    // Create appropriate Jarvis according to the player's decision
     switch (difficulty) {
       case EASY:
         return new EasyJarvis(strategy);
