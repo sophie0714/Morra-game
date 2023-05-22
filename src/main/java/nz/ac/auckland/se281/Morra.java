@@ -23,6 +23,7 @@ public class Morra {
     humanPoints = 0;
     aiPoints = 0;
     history.clear();
+    strategy = null;
 
     // New Game has started
     newGameStarted = true;
